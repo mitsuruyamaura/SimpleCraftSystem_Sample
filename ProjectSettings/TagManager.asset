@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Item
+  - Resource
+  - Container
+  - CraftableItem
+  - Tool
+  - Interactable
+  - Terrain
   layers:
   - Default
   - TransparentFX
@@ -13,8 +20,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - CraftableItem
+  - Player
   - 
   - 
   - 
