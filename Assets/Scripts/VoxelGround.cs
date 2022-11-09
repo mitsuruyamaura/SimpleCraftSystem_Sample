@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 【Unity】マインクラフト風の地形を作りSTYLYへアップロードする《前編》
+// https://styly.cc/ja/tips/texturedvoxel_iwase_minecraft/
+
+
 public class VoxelGround : MonoBehaviour
 {
     private float sizeX = 50.0f;  // X 軸上に並べるブロックの数
@@ -25,6 +29,7 @@ public class VoxelGround : MonoBehaviour
 
                 cube.GetComponent<MeshRenderer>().material = material;
 
+                // パーリンノイズの引数の範囲は 0 ～ 1 の間
                 // X、Z 軸に沿って滑らかに変化する数値を生成(PerlinNoise を利用することでブロックの高さを滑らかに変化させる)
                 float noise = Mathf.PerlinNoise(x / sizeW, z / sizeW);
 
@@ -47,7 +52,8 @@ public class VoxelGround : MonoBehaviour
     /// </summary>
     /// <param name="cube"></param>
     private void SetUV(GameObject cube) {
-        Vector2[] uv = cube.GetComponent<MeshFilter>().mesh.uv;
+        // 代入した変数では上書きできないので、毎回 GetComponent する
+        //Vector2[] uv = cube.GetComponent<MeshFilter>().mesh.uv;
         cube.GetComponent<MeshFilter>().mesh.uv = GetBlockUVs(2, 15);  // 草
 
         if (cube.transform.position.y > sizeY * 0.3f) {
