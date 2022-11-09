@@ -88,6 +88,8 @@ namespace CraftEngine {
         public ToolActionController m_toolActionController;
 
         public GameObject m_inventoryMenu;
+
+        [Obsolete]
         void Awake() {
             m_inputGroups = new Dictionary<string, InputGroup>();
 
@@ -158,6 +160,7 @@ namespace CraftEngine {
             m_inputGroups.Add(InputManager.ToolsActionsGroup, group);
         }
 
+        [Obsolete]
         void InitializeInteractInputs() {
             InputGroup group = new InputGroup();
 
